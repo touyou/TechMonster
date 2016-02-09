@@ -52,7 +52,7 @@ class LobbyViewController: UIViewController {
         staminaTimer = NSTimer.scheduledTimerWithTimeInterval(15.0, target: self, selector: "updateStaminaValue", userInfo: nil, repeats: true)
         staminaTimer.fire()
     }
-    
+    // 一定時間でスタミナ回復
     func updateStaminaValue() {
         if stamina <= 100 {
             stamina = stamina + 1
@@ -65,6 +65,8 @@ class LobbyViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // せっかくのスタミナなので一回15消費ということに（回復は15秒で1）
+    // スタミナに対する減算処理はバトル画面のほうで
     @IBAction func startButtonPushed(sender: UIButton) {
         if stamina >= 15 {
             self.performSegueWithIdentifier("toBattleView", sender: nil)
@@ -75,6 +77,7 @@ class LobbyViewController: UIViewController {
         }
     }
     
+    // レベルとスタミナを初期状態に戻すオプション
     @IBAction func reset() {
         NSUserDefaults.standardUserDefaults().setFloat(100.0, forKey: "stamina")
         NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "level")

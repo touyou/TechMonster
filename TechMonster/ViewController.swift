@@ -40,6 +40,7 @@ class ViewController: UIViewController {
         enemyTimer.fire()
     }
     
+    // ステータスの初期化
     func initStatus() {
         enemy = Enemy()
         player = Player()
@@ -57,6 +58,7 @@ class ViewController: UIViewController {
         util.playBGM("BGM_battle001")
     }
     
+    // Player側がアタックする処理
     @IBAction func playerAttack() {
         TechDraUtility.damageAnimation(enemyImageView)
         util.playSE("SE_attack")
@@ -68,6 +70,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // 敵側の攻撃
     func enemyAttack() {
         TechDraUtility.damageAnimation(playerImageView)
         util.playSE("SE_attack")
@@ -78,6 +81,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // バトルが終了したとき
     func finishBattle(vanishImageView: UIImageView, winPlayer: Bool) {
         TechDraUtility.vanishAnimation(vanishImageView)
         util.stopBGM()
@@ -116,7 +120,7 @@ class ViewController: UIViewController {
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "updateHPValue", userInfo: nil, repeats: true)
         timer.fire()
     }
-    
+    // 一定時間で敵味方ともに回復していくらしい
     func updateHPValue() {
         if enemy.currentHP < enemy.maxHP {
             enemy.currentHP = enemy.currentHP + enemy.defencePoint

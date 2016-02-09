@@ -29,7 +29,7 @@ class Player: NSObject {
         speed = 1.2
         image = UIImage(named: "falcon.png")
     }
-    
+    // 一応他の味方を増やしたい時用に追加
     func Player(name: String, maxHP: Float, currentHP: Float, attackPoint: Float, defencePoint: Float, speed: Float, image:UIImage) {
         self.name = name
         self.maxHP = maxHP

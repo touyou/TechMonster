@@ -46,6 +46,8 @@ class TechDraUtility: NSObject, AVAudioPlayerDelegate {
             }, completion: nil)
     }
 
+    
+    // エラーが発生していたのでサウンド再生部分はClapで使われていた書き方を流用
     //MARK: Sound Effects
     func playSE(fileName: String) {
         
